@@ -7,7 +7,7 @@ import Hero from './components/Hero';
 const heroData = [
 {
 title: "Model 3",
-backgroundImage: "https://res.cloudinary.com/dqhawdcol/image/upload/v1761718555/tqzdok9ooya1zeadvdej.jpg",
+backgroundImage: "https://res.cloudinary.com/dqhawdcol/image/upload/v1761738221/z5g3hm11goe43buw3ec3.avif",
 mobileBackgroundImage: "https://res.cloudinary.com/dqhawdcol/image/upload/v1761728713/vnv9jhbhut4sajs0d5xu.avif",
 buttons: [
 { text: "Order Now", primary: true },
@@ -16,8 +16,9 @@ buttons: [
 showSchedule: true
 },
 {
-title: "Model S",
-backgroundImage: "https://res.cloudinary.com/dqhawdcol/image/upload/v1761718557/d99zs8bkkrzdx73yuw9u.jpg",
+title: "Model Y",
+subtitle: "Lease Prices Increase by up to $80/mo on Nov. 4",
+backgroundImage: "https://res.cloudinary.com/dqhawdcol/image/upload/v1761738187/bpcah0gwcgevuzms8d2s.avif",
 mobileBackgroundImage: "https://res.cloudinary.com/dqhawdcol/image/upload/v1761728713/fb2qr0nn0onpzlvmzs6o.avif",
 buttons: [
 { text: "Order Now", primary: true },
@@ -26,8 +27,10 @@ buttons: [
 showSchedule: false
 },
 {
-title: "Model X",
-backgroundImage: "https://res.cloudinary.com/dqhawdcol/image/upload/v1761718561/ut5m13dzczphrjfx9bae.jpg",
+title: "Cybertruck",
+subtitle: "Lease From $699/mo",
+linkText: "Lease Prices Increase by up to $80/mo on Nov. 4",
+backgroundImage: "https://res.cloudinary.com/dqhawdcol/image/upload/v1761738184/uxkrrrw5uwbg3akvnnvr.avif",
 mobileBackgroundImage: "https://res.cloudinary.com/dqhawdcol/image/upload/v1761728712/rckwee0mtzethxsuv6k3.avif",
 buttons: [
 { text: "Order Now", primary: true },
@@ -62,6 +65,8 @@ return (
 <Hero
 key={index}
 title={hero.title}
+subtitle={hero.subtitle}
+linkText={hero.linkText}
 backgroundImage={isMobile ? hero.mobileBackgroundImage : hero.backgroundImage}
 buttons={hero.buttons}
 showSchedule={hero.showSchedule}
