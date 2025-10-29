@@ -3,8 +3,8 @@ return (
 <footer className="footer">
 <div className="container">
 <div className="footer-content">
-<div>Tesla © 2025</div>
 <ul className="footer-links">
+<li>Tesla © 2025</li>
 <li><a href="#">Privacy & Legal</a></li>
 <li><a href="#">Vehicle Recalls</a></li>
 <li><a href="#">Contact</a></li>
