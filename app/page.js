@@ -13,7 +13,7 @@ buttons: [
 { text: "Order Now", primary: true },
 { text: "Learn More", primary: false }
 ],
-showSchedule: true
+showSchedule: false
 },
 {
 title: "Model Y",
