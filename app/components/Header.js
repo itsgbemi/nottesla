@@ -35,14 +35,14 @@ className="logo"
 </nav>
 
 <div className="utility-icons">
-<button className="utility-icon" data-tooltip="Ask a Question">
+<button className="utility-icon" data-tooltip="Support">
 <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
 <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>
 <line x1="12" y1="17" x2="12.01" y2="17"/>
 </svg>
 </button>
-<button className="utility-icon" data-tooltip="Language">
+<button className="utility-icon" data-tooltip="Region & Language">
 <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 <circle cx="12" cy="12" r="10"/>
 <line x1="2" y1="12" x2="22" y2="12"/>
