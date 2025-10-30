@@ -30,7 +30,7 @@ position: relative;
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 15px 40px;
+padding: 15px 20px;
 position: fixed;
 top: 0;
 left: 0;
@@ -219,7 +219,7 @@ color: #666;
 
 .dots-container {
 position: absolute;
-bottom: 40px;
+bottom: 60px;
 left: 50%;
 transform: translateX(-50%);
 display: flex;
@@ -321,6 +321,7 @@ padding-top: 0;
 
 .header {
 background-color: transparent;
+padding: 15px 10px;
 }
 
 .logo {
@@ -354,4 +355,4 @@ font-size: 28px;
 .btn {
 padding: 12px 40px;
 }
-}
+  }
