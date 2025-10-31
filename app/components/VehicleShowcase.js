@@ -1,7 +1,7 @@
 'use client';
 import { useRef } from 'react';
 
-export default function VehicleShowcase({ vehicles }) {
+export default function VehicleShowcase({ vehicles, currentSlide, setCurrentSlide }) {
 const scrollContainerRef = useRef(null);
 const touchStartX = useRef(0);
 const touchEndX = useRef(0);
@@ -19,6 +19,11 @@ if (!touchStartX.current || !touchEndX.current) return;
 
 const diff = touchStartX.current - touchEndX.current;
 if (Math.abs(diff) > 50) {
+if (diff > 0) {
+setCurrentSlide((prev) => (prev + 1) % vehicles.length);
+} else {
+setCurrentSlide((prev) => (prev - 1 + vehicles.length) % vehicles.length);
+}
 const container = scrollContainerRef.current;
 if (container) {
 const scrollAmount = diff > 0 ? container.offsetWidth : -container.offsetWidth;
@@ -60,6 +65,21 @@ className={`vehicle-btn ${button.primary ? 'vehicle-btn-primary' : 'vehicle-btn-
 </div>
 </div>
 </div>
+))}
+</div>
+<div className="vehicle-dots-container">
+{vehicles.map((_, index) => (
+<button
+key={index}
+className={`vehicle-dot ${index === currentSlide ? 'active' : ''}`}
+onClick={() => {
+setCurrentSlide(index);
+const container = scrollContainerRef.current;
+if (container) {
+container.scrollTo({ left: index * container.offsetWidth, behavior: 'smooth' });
+}
+}}
+/>
 ))}
 </div>
 </section>
