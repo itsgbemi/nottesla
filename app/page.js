@@ -148,7 +148,7 @@ setCurrentSlide((prev) => (prev - 1 + heroData.length) % heroData.length);
 };
 
 return (
-<main>
+<main className="relative">
 <Header />
 <div 
 onTouchStart={handleTouchStart}
@@ -168,11 +168,11 @@ isActive={index === currentSlide}
 />
 ))}
 </div>
-<div className="dots-container">
+<div className="absolute bottom-15 left-1/2 transform -translate-x-1/2 flex gap-2.5 z-10">
 {heroData.map((_, index) => (
 <button
 key={index}
-className={`dot ${index === currentSlide ? 'active' : ''}`}
+className={`w-2.5 h-2.5 rounded-full cursor-pointer border-none ${index === currentSlide ? 'bg-white' : 'bg-white/50'}`}
 onClick={() => setCurrentSlide(index)}
 />
 ))}
