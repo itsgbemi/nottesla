@@ -29,8 +29,6 @@ container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 
 return (
 <section className="vehicle-showcase">
-<div className="container">
-<h2 className="showcase-title">Vehicle Lineup</h2>
 <div 
 ref={scrollContainerRef}
 className="vehicle-scroll-container"
@@ -39,10 +37,11 @@ onTouchMove={handleTouchMove}
 onTouchEnd={handleTouchEnd}
 >
 {vehicles.map((vehicle, index) => (
-<div key={index} className="vehicle-card">
-<div className="vehicle-image-container">
-<img src={vehicle.image} alt={vehicle.heading} className="vehicle-image" />
-</div>
+<div 
+key={index} 
+className="vehicle-card"
+style={{ backgroundImage: `url(${vehicle.image})` }}
+>
 <div className="vehicle-content">
 <div className="vehicle-preheading">{vehicle.preHeading}</div>
 <div className="vehicle-bottom-content">
@@ -62,7 +61,6 @@ className={`vehicle-btn ${button.primary ? 'vehicle-btn-primary' : 'vehicle-btn-
 </div>
 </div>
 ))}
-</div>
 </div>
 </section>
 );
