@@ -302,6 +302,112 @@ cursor: pointer;
 z-index: 90;
 }
 
+.vehicle-showcase {
+padding: 80px 0;
+background-color: #000;
+}
+
+.showcase-title {
+text-align: center;
+font-size: 32px;
+margin-bottom: 40px;
+font-weight: bold;
+}
+
+.vehicle-scroll-container {
+display: flex;
+gap: 20px;
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+scrollbar-width: none;
+-ms-overflow-style: none;
+padding: 0 20px;
+}
+
+.vehicle-scroll-container::-webkit-scrollbar {
+display: none;
+}
+
+.vehicle-card {
+min-width: 300px;
+scroll-snap-align: start;
+background: #111;
+border-radius: 12px;
+overflow: hidden;
+}
+
+.vehicle-image-container {
+width: 100%;
+height: 200px;
+overflow: hidden;
+}
+
+.vehicle-image {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.vehicle-content {
+padding: 20px;
+display: flex;
+flex-direction: column;
+height: 200px;
+}
+
+.vehicle-preheading {
+font-size: 12px;
+color: #888;
+margin-bottom: auto;
+}
+
+.vehicle-bottom-content {
+margin-top: auto;
+}
+
+.vehicle-heading {
+font-size: 24px;
+font-weight: bold;
+margin-bottom: 8px;
+}
+
+.vehicle-subtitle {
+font-size: 14px;
+color: #3c6be1;
+text-decoration: underline;
+margin-bottom: 16px;
+cursor: pointer;
+}
+
+.vehicle-buttons {
+display: flex;
+gap: 12px;
+}
+
+.vehicle-btn {
+padding: 10px 24px;
+border-radius: 4px;
+font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+border: none;
+flex: 1;
+}
+
+.vehicle-btn-primary {
+background-color: #3c6be1;
+color: #fff;
+}
+
+.vehicle-btn-secondary {
+background-color: rgba(255,255,255,0.1);
+color: #fff;
+}
+
+.vehicle-btn:hover {
+opacity: 0.9;
+}
+
 @media (max-width: 768px) {
 .desktop-nav {
 display: none;
@@ -345,6 +451,20 @@ font-size: 32px;
 flex-direction: column;
 gap: 15px;
 }
+
+.vehicle-card {
+min-width: 280px;
+}
+
+.vehicle-buttons {
+flex-direction: row;
+gap: 8px;
+}
+
+.vehicle-btn {
+padding: 10px 16px;
+font-size: 12px;
+}
 }
 
 @media (max-width: 480px) {
@@ -355,4 +475,16 @@ font-size: 28px;
 .btn {
 padding: 12px 40px;
 }
-  }
+
+.vehicle-card {
+min-width: 260px;
+}
+
+.vehicle-buttons {
+flex-wrap: nowrap;
+}
+
+.vehicle-btn {
+white-space: nowrap;
+}
+}
