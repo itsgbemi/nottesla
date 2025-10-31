@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import VehicleShowcase from './components/VehicleShowcase';
+import OffersSection from './components/OffersSection';
 
 const heroData = [
 {
@@ -84,8 +85,22 @@ buttons: [
 }
 ];
 
+const offersData = [
+{
+heading: "Free Supercharging",
+text: "Get free unlimited Supercharging when you take delivery of a new Model S or Model X by Dec 31.",
+buttonText: "Learn More"
+},
+{
+heading: "Solar & Powerwall",
+text: "Power your home with solar and battery storage. Schedule a virtual consultation.",
+buttonText: "Order Now"
+}
+];
+
 export default function Home() {
 const [currentSlide, setCurrentSlide] = useState(0);
+const [currentVehicleSlide, setCurrentVehicleSlide] = useState(0);
 const [isMobile, setIsMobile] = useState(false);
 const touchStartX = useRef(0);
 const touchEndX = useRef(0);
@@ -100,6 +115,13 @@ return () => window.removeEventListener('resize', checkMobile);
 useEffect(() => {
 const interval = setInterval(() => {
 setCurrentSlide((prev) => (prev + 1) % heroData.length);
+}, 5000);
+return () => clearInterval(interval);
+}, []);
+
+useEffect(() => {
+const interval = setInterval(() => {
+setCurrentVehicleSlide((prev) => (prev + 1) % vehicleData.length);
 }, 5000);
 return () => clearInterval(interval);
 }, []);
@@ -155,7 +177,12 @@ onClick={() => setCurrentSlide(index)}
 />
 ))}
 </div>
-<VehicleShowcase vehicles={vehicleData} />
+<VehicleShowcase 
+vehicles={vehicleData} 
+currentSlide={currentVehicleSlide}
+setCurrentSlide={setCurrentVehicleSlide}
+/>
+<OffersSection offers={offersData} />
 <Footer />
 </main>
 );
