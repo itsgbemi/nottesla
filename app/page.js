@@ -55,9 +55,9 @@ buttons: [
 },
 {
 image: "https://res.cloudinary.com/dqhawdcol/image/upload/v1761844373/c2y0gqtykk0yjtspwy0z.avif",
-preHeading: "Compact SUV",
-heading: "Model X",
-subtitle: "Lease from $699/mo",
+preHeading: "Sport Sedan",
+heading: "Model 3",
+subtitle: "2.99% APR Available",
 buttons: [
 { text: "Order Now", primary: true },
 { text: "Learn More", primary: false }
@@ -148,5 +148,42 @@ setCurrentSlide((prev) => (prev - 1 + heroData.length) % heroData.length);
 };
 
 return (
-
-<main> <Header /> <div onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} > {heroData.map((hero, index) => ( <Hero key={index} title={hero.title} subtitle={hero.subtitle} linkText={hero.linkText} backgroundImage={isMobile ? hero.mobileBackgroundImage : hero.backgroundImage} buttons={hero.buttons} showSchedule={hero.showSchedule} isActive={index === currentSlide} /> ))} </div> <div className="dots-container"> {heroData.map((_, index) => ( <button key={index} className={`dot ${index === currentSlide ? 'active' : ''}`} onClick={() => setCurrentSlide(index)} /> ))} </div> <VehicleShowcase vehicles={vehicleData} currentSlide={currentVehicleSlide} setCurrentSlide={setCurrentVehicleSlide} /> <OffersSection offers={offersData} /> <Footer /> </main> ); }
+<main>
+<Header />
+<div onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+{heroData.map((hero, index) => (
+<Hero
+key={index}
+title={hero.title}
+subtitle={hero.subtitle}
+linkText={hero.linkText}
+backgroundImage={isMobile ? hero.mobileBackgroundImage : hero.backgroundImage}
+buttons={hero.buttons}
+showSchedule={hero.showSchedule}
+isActive={index === currentSlide}
+/>
+))}
+</div>
+<div className="dots-container">
+{heroData.map((_, index) => (
+<button
+key={index}
+className={`dot ${index === currentSlide ? 'active' : ''}`}
+onClick={() => setCurrentSlide(index)}
+/>
+))}
+</div>
+<VehicleShowcase vehicles={vehicleData} currentSlide={currentVehicleSlide} setCurrentSlide={setCurrentVehicleSlide} />
+<OffersSection offers={offersData} />
+<div className="ask-question">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+<path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+<path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>
+<line x1="12" y1="17" x2="12.01" y2="17"/>
+</svg>
+<span>Ask a Question "What's Dog Mode?"</span>
+</div>
+<Footer />
+</main>
+);
+}
