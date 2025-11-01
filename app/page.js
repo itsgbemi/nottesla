@@ -55,9 +55,9 @@ buttons: [
 },
 {
 image: "https://res.cloudinary.com/dqhawdcol/image/upload/v1761844373/c2y0gqtykk0yjtspwy0z.avif",
-preHeading: "Sport Sedan",
-heading: "Model 3",
-subtitle: "2.99% APR Available",
+preHeading: "Compact SUV",
+heading: "Model X",
+subtitle: "Lease from $699/mo",
 buttons: [
 { text: "Order Now", primary: true },
 { text: "Learn More", primary: false }
@@ -152,7 +152,7 @@ return (
 <Header />
 <div onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
 {heroData.map((hero, index) => (
-<Hero
+<Hero 
 key={index}
 title={hero.title}
 subtitle={hero.subtitle}
@@ -166,24 +166,32 @@ isActive={index === currentSlide}
 </div>
 <div className="dots-container">
 {heroData.map((_, index) => (
-<button
-key={index}
-className={`dot ${index === currentSlide ? 'active' : ''}`}
-onClick={() => setCurrentSlide(index)}
+<button 
+key={index} 
+className={`dot ${index === currentSlide ? 'active' : ''}`} 
+onClick={() => setCurrentSlide(index)} 
 />
 ))}
 </div>
 <VehicleShowcase vehicles={vehicleData} currentSlide={currentVehicleSlide} setCurrentSlide={setCurrentVehicleSlide} />
 <OffersSection offers={offersData} />
-<div className="ask-question">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-<path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-<path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>
-<line x1="12" y1="17" x2="12.01" y2="17"/>
-</svg>
-<span>Ask a Question "What's Dog Mode?"</span>
-</div>
 <Footer />
+<div className="footer-bar">
+<button className="footer-bar-btn">
+<svg className="footer-bar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+<path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+</svg>
+Ask a Question
+</button>
+<button className="footer-bar-btn">
+<img 
+src="https://res.cloudinary.com/dqhawdcol/image/upload/v1761980654/smwlimnicwcs9jn0k7j1.svg" 
+alt="Schedule Drive" 
+className="footer-bar-icon"
+/>
+Schedule a Drive
+</button>
+</div>
 </main>
 );
 }
