@@ -518,25 +518,19 @@ z-index: 90;
 }
 
 .vehicle-showcase {
-padding: 80px 0;
-background-color: #000;
-}
-
-.showcase-title {
-text-align: center;
-font-size: 32px;
-margin-bottom: 40px;
-font-weight: bold;
+background-color: #fff;
+position: relative;
 }
 
 .vehicle-scroll-container {
 display: flex;
-gap: 20px;
+height: 70vh;
 overflow-x: auto;
 scroll-snap-type: x mandatory;
 scrollbar-width: none;
 -ms-overflow-style: none;
-padding: 0 20px;
+gap: 20px;
+padding: 0 80px 0 40px;
 }
 
 .vehicle-scroll-container::-webkit-scrollbar {
@@ -544,35 +538,43 @@ display: none;
 }
 
 .vehicle-card {
-min-width: 300px;
+min-width: calc(90vw - 120px);
+height: calc(100% - 60px);
+margin: 30px 0;
 scroll-snap-align: start;
-background: #111;
+background-size: cover;
+background-position: center;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 80px 40px 40px;
+position: relative;
 border-radius: 12px;
 overflow: hidden;
 }
 
-.vehicle-image-container {
-width: 100%;
-height: 200px;
-overflow: hidden;
-}
-
-.vehicle-image {
-width: 100%;
-height: 100%;
-object-fit: cover;
+.vehicle-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 100%);
 }
 
 .vehicle-content {
-padding: 20px;
+position: relative;
+z-index: 2;
 display: flex;
 flex-direction: column;
-height: 200px;
+height: 100%;
+color: #fff;
+text-align: left;
 }
 
 .vehicle-preheading {
-font-size: 12px;
-color: #888;
+font-size: 14px;
 margin-bottom: auto;
 }
 
@@ -581,26 +583,25 @@ margin-top: auto;
 }
 
 .vehicle-heading {
-font-size: 24px;
+font-size: 40px;
 font-weight: bold;
 margin-bottom: 8px;
 }
 
 .vehicle-subtitle {
-font-size: 14px;
-color: #3c6be1;
+font-size: 16px;
 text-decoration: underline;
-margin-bottom: 16px;
+margin-bottom: 30px;
 cursor: pointer;
 }
 
 .vehicle-buttons {
 display: flex;
-gap: 12px;
+gap: 20px;
 }
 
 .vehicle-btn {
-padding: 10px 24px;
+padding: 12px 80px;
 border-radius: 4px;
 font-size: 14px;
 font-weight: 600;
@@ -615,12 +616,94 @@ color: #fff;
 }
 
 .vehicle-btn-secondary {
-background-color: rgba(255,255,255,0.1);
-color: #fff;
+background-color: rgba(255,255,255,0.9);
+color: #000;
 }
 
 .vehicle-btn:hover {
 opacity: 0.9;
+}
+
+.vehicle-dots-container {
+position: absolute;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: 10px;
+z-index: 10;
+}
+
+.vehicle-dot {
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: rgba(0,0,0,0.3);
+cursor: pointer;
+border: none;
+}
+
+.vehicle-dot.active {
+background-color: #000;
+}
+
+.offers-section {
+background-color: #fff;
+padding: 80px 0;
+}
+
+.offers-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 40px;
+}
+
+.offer-card {
+background-color: #f4f4f4;
+padding: 40px;
+border-radius: 12px;
+text-align: left;
+}
+
+.offer-heading {
+font-size: 24px;
+font-weight: bold;
+color: #000;
+margin-bottom: 16px;
+}
+
+.offer-text {
+font-size: 16px;
+color: #000;
+margin-bottom: 24px;
+line-height: 1.5;
+}
+
+.offer-btn {
+background-color: #fff;
+color: #000;
+border: 1px solid #000;
+padding: 12px 40px;
+border-radius: 4px;
+font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+text-decoration: none;
+}
+
+.offer-btn:hover {
+background-color: #000;
+color: #fff;
+}
+
+@media (min-width: 1024px) {
+.vehicle-scroll-container {
+padding: 0 100px 0 60px;
+}
+
+.vehicle-card {
+min-width: calc(85vw - 160px);
+}
 }
 
 @media (max-width: 768px) {
@@ -667,18 +750,39 @@ flex-direction: column;
 gap: 15px;
 }
 
+.vehicle-scroll-container {
+height: 60vh;
+gap: 15px;
+padding: 0 20px;
+}
+
 .vehicle-card {
-min-width: 280px;
+padding: 60px 20px 30px;
+min-width: calc(100vw - 40px);
+height: calc(100% - 30px);
+margin: 15px 0;
+}
+
+.vehicle-heading {
+font-size: 32px;
 }
 
 .vehicle-buttons {
 flex-direction: row;
-gap: 8px;
+gap: 15px;
 }
 
 .vehicle-btn {
-padding: 10px 16px;
-font-size: 12px;
+padding: 12px 40px;
+}
+
+.offers-grid {
+grid-template-columns: 1fr;
+gap: 20px;
+}
+
+.offer-card {
+padding: 30px 20px;
 }
 }
 
@@ -691,8 +795,8 @@ font-size: 28px;
 padding: 12px 40px;
 }
 
-.vehicle-card {
-min-width: 260px;
+.vehicle-heading {
+font-size: 28px;
 }
 
 .vehicle-buttons {
@@ -700,7 +804,17 @@ flex-wrap: nowrap;
 }
 
 .vehicle-btn {
-white-space: nowrap;
+padding: 12px 20px;
+font-size: 12px;
+}
+
+.vehicle-scroll-container {
+padding: 0 15px;
+}
+
+.vehicle-card {
+min-width: calc(100vw - 30px);
+padding: 50px 15px 25px;
 }
 }
 
@@ -864,7 +978,7 @@ app/components/VehicleShowcase.js
 'use client';
 import { useRef } from 'react';
 
-export default function VehicleShowcase({ vehicles }) {
+export default function VehicleShowcase({ vehicles, currentSlide, setCurrentSlide }) {
 const scrollContainerRef = useRef(null);
 const touchStartX = useRef(0);
 const touchEndX = useRef(0);
@@ -882,6 +996,11 @@ if (!touchStartX.current || !touchEndX.current) return;
 
 const diff = touchStartX.current - touchEndX.current;
 if (Math.abs(diff) > 50) {
+if (diff > 0) {
+setCurrentSlide((prev) => (prev + 1) % vehicles.length);
+} else {
+setCurrentSlide((prev) => (prev - 1 + vehicles.length) % vehicles.length);
+}
 const container = scrollContainerRef.current;
 if (container) {
 const scrollAmount = diff > 0 ? container.offsetWidth : -container.offsetWidth;
@@ -891,42 +1010,11 @@ container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 };
 
 return (
-<section className="vehicle-showcase">
-<div className="container">
-<h2 className="showcase-title">Vehicle Lineup</h2>
-<div 
-ref={scrollContainerRef}
-className="vehicle-scroll-container"
-onTouchStart={handleTouchStart}
-onTouchMove={handleTouchMove}
-onTouchEnd={handleTouchEnd}
->
-{vehicles.map((vehicle, index) => (
-<div key={index} className="vehicle-card">
-<div className="vehicle-image-container">
-<img src={vehicle.image} alt={vehicle.heading} className="vehicle-image" />
-</div>
-<div className="vehicle-content">
-<div className="vehicle-preheading">{vehicle.preHeading}</div>
-<div className="vehicle-bottom-content">
-<h3 className="vehicle-heading">{vehicle.heading}</h3>
-<p className="vehicle-subtitle">{vehicle.subtitle}</p>
-<div className="vehicle-buttons">
-{vehicle.buttons.map((button, btnIndex) => (
-<button
-key={btnIndex}
-className={`vehicle-btn ${button.primary ? 'vehicle-btn-primary' : 'vehicle-btn-secondary'}`}
->
-{button.text}
-</button>
-))}
-</div>
-</div>
-</div>
-</div>
-))}
-</div>
-</div>
-</section>
-);
-}
+
+<section className="vehicle-showcase"> <div ref={scrollContainerRef} className="vehicle-scroll-container" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} > {vehicles.map((vehicle, index) => ( <div key={index} className="vehicle-card" style={{ backgroundImage: `url(${vehicle.image})` }} > <div className="vehicle-content"> <div className="vehicle-preheading">{vehicle.preHeading}</div> <div className="vehicle-bottom-content"> <h3 className="vehicle-heading">{vehicle.heading}</h3> <p className="vehicle-subtitle">{vehicle.subtitle}</p> <div className="vehicle-buttons"> {vehicle.buttons.map((button, btnIndex) => ( <button key={btnIndex} className={`vehicle-btn ${button.primary ? 'vehicle-btn-primary' : 'vehicle-btn-secondary'}`} > {button.text} </button> ))} </div> </div> </div> </div> ))} </div> <div className="vehicle-dots-container"> {vehicles.map((_, index) => ( <button key={index} className={`vehicle-dot ${index === currentSlide ? 'active' : ''}`} onClick={() => { setCurrentSlide(index); const container = scrollContainerRef.current; if (container) { container.scrollTo({ left: index * container.offsetWidth, behavior: 'smooth' }); } }} /> ))} </div> </section> ); }
+
+app/components/OffersSection.js
+export default function OffersSection({ offers }) {
+return (
+
+<section className="offers-section"> <div className="container"> <div className="offers-grid"> {offers.map((offer, index) => ( <div key={index} className="offer-card"> <h3 className="offer-heading">{offer.heading}</h3> <p className="offer-text">{offer.text}</p> <button className="offer-btn">{offer.buttonText}</button> </div> ))} </div> </div> </section> ); }
