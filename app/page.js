@@ -148,42 +148,5 @@ setCurrentSlide((prev) => (prev - 1 + heroData.length) % heroData.length);
 };
 
 return (
-<main className="relative">
-<Header />
-<div 
-onTouchStart={handleTouchStart}
-onTouchMove={handleTouchMove}
-onTouchEnd={handleTouchEnd}
->
-{heroData.map((hero, index) => (
-<Hero
-key={index}
-title={hero.title}
-subtitle={hero.subtitle}
-linkText={hero.linkText}
-backgroundImage={isMobile ? hero.mobileBackgroundImage : hero.backgroundImage}
-buttons={hero.buttons}
-showSchedule={hero.showSchedule}
-isActive={index === currentSlide}
-/>
-))}
-</div>
-<div className="absolute bottom-15 left-1/2 transform -translate-x-1/2 flex gap-2.5 z-10">
-{heroData.map((_, index) => (
-<button
-key={index}
-className={`w-2.5 h-2.5 rounded-full cursor-pointer border-none ${index === currentSlide ? 'bg-white' : 'bg-white/50'}`}
-onClick={() => setCurrentSlide(index)}
-/>
-))}
-</div>
-<VehicleShowcase 
-vehicles={vehicleData} 
-currentSlide={currentVehicleSlide}
-setCurrentSlide={setCurrentVehicleSlide}
-/>
-<OffersSection offers={offersData} />
-<Footer />
-</main>
-);
-}
+
+<main> <Header /> <div onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} > {heroData.map((hero, index) => ( <Hero key={index} title={hero.title} subtitle={hero.subtitle} linkText={hero.linkText} backgroundImage={isMobile ? hero.mobileBackgroundImage : hero.backgroundImage} buttons={hero.buttons} showSchedule={hero.showSchedule} isActive={index === currentSlide} /> ))} </div> <div className="dots-container"> {heroData.map((_, index) => ( <button key={index} className={`dot ${index === currentSlide ? 'active' : ''}`} onClick={() => setCurrentSlide(index)} /> ))} </div> <VehicleShowcase vehicles={vehicleData} currentSlide={currentVehicleSlide} setCurrentSlide={setCurrentVehicleSlide} /> <OffersSection offers={offersData} /> <Footer /> </main> ); }
