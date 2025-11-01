@@ -19,7 +19,7 @@ setIsMenuOpen(!isMenuOpen);
 
 return (
 <>
-<header className={`header ${isMobile ? 'transparent' : ''}`}>
+<header className={`header ${isMobile ? '' : ''}`}>
 <img 
 src="https://res.cloudinary.com/dqhawdcol/image/upload/v1761718553/xvtekklcntsfqyt2qtzp.png" 
 alt="Tesla" 
