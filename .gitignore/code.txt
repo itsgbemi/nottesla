@@ -36,6 +36,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import VehicleShowcase from './components/VehicleShowcase';
+import OffersSection from './components/OffersSection';
 
 const heroData = [
 {
@@ -116,8 +117,22 @@ buttons: [
 }
 ];
 
+const offersData = [
+{
+heading: "Free Supercharging",
+text: "Get free unlimited Supercharging when you take delivery of a new Model S or Model X by Dec 31.",
+buttonText: "Learn More"
+},
+{
+heading: "Solar & Powerwall",
+text: "Power your home with solar and battery storage. Schedule a virtual consultation.",
+buttonText: "Order Now"
+}
+];
+
 export default function Home() {
 const [currentSlide, setCurrentSlide] = useState(0);
+const [currentVehicleSlide, setCurrentVehicleSlide] = useState(0);
 const [isMobile, setIsMobile] = useState(false);
 const touchStartX = useRef(0);
 const touchEndX = useRef(0);
@@ -132,6 +147,13 @@ return () => window.removeEventListener('resize', checkMobile);
 useEffect(() => {
 const interval = setInterval(() => {
 setCurrentSlide((prev) => (prev + 1) % heroData.length);
+}, 5000);
+return () => clearInterval(interval);
+}, []);
+
+useEffect(() => {
+const interval = setInterval(() => {
+setCurrentVehicleSlide((prev) => (prev + 1) % vehicleData.length);
 }, 5000);
 return () => clearInterval(interval);
 }, []);
@@ -158,40 +180,8 @@ setCurrentSlide((prev) => (prev - 1 + heroData.length) % heroData.length);
 };
 
 return (
-<main>
-<Header />
-<div 
-onTouchStart={handleTouchStart}
-onTouchMove={handleTouchMove}
-onTouchEnd={handleTouchEnd}
->
-{heroData.map((hero, index) => (
-<Hero
-key={index}
-title={hero.title}
-subtitle={hero.subtitle}
-linkText={hero.linkText}
-backgroundImage={isMobile ? hero.mobileBackgroundImage : hero.backgroundImage}
-buttons={hero.buttons}
-showSchedule={hero.showSchedule}
-isActive={index === currentSlide}
-/>
-))}
-</div>
-<div className="dots-container">
-{heroData.map((_, index) => (
-<button
-key={index}
-className={`dot ${index === currentSlide ? 'active' : ''}`}
-onClick={() => setCurrentSlide(index)}
-/>
-))}
-</div>
-<VehicleShowcase vehicles={vehicleData} />
-<Footer />
-</main>
-);
-}
+
+<main> <Header /> <div onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} > {heroData.map((hero, index) => ( <Hero key={index} title={hero.title} subtitle={hero.subtitle} linkText={hero.linkText} backgroundImage={isMobile ? hero.mobileBackgroundImage : hero.backgroundImage} buttons={hero.buttons} showSchedule={hero.showSchedule} isActive={index === currentSlide} /> ))} </div> <div className="dots-container"> {heroData.map((_, index) => ( <button key={index} className={`dot ${index === currentSlide ? 'active' : ''}`} onClick={() => setCurrentSlide(index)} /> ))} </div> <VehicleShowcase vehicles={vehicleData} currentSlide={currentVehicleSlide} setCurrentSlide={setCurrentVehicleSlide} /> <OffersSection offers={offersData} /> <Footer /> </main> ); }
 
 app/layout.js
 import { Inter } from 'next/font/google'
