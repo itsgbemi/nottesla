@@ -312,7 +312,7 @@ min-width: calc(90vw - 120px);
 height: calc(100% - 60px);
 margin: 30px 0;
 scroll-snap-align: start;
-background-size: contain;
+background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
 display: flex;
@@ -322,7 +322,6 @@ padding: 80px 40px 40px;
 position: relative;
 border-radius: 12px;
 overflow: hidden;
-background-color: #f4f4f4;
 }
 
 .vehicle-card::before {
@@ -348,7 +347,7 @@ text-align: left;
 .vehicle-preheading {
 font-size: 14px;
 margin-bottom: auto;
-color: #000;
+color: #fff;
 }
 
 .vehicle-bottom-content {
@@ -359,7 +358,7 @@ margin-top: auto;
 font-size: 40px;
 font-weight: bold;
 margin-bottom: 8px;
-color: #000;
+color: #fff;
 }
 
 .vehicle-subtitle {
@@ -367,7 +366,7 @@ font-size: 16px;
 text-decoration: underline;
 margin-bottom: 30px;
 cursor: pointer;
-color: #000;
+color: #fff;
 }
 
 .vehicle-buttons {
