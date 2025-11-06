@@ -571,7 +571,7 @@ padding: 0 20px;
 
 .vehicle-card {
 padding: 60px 20px 30px;
-min-width: calc(100vw - 40px);
+min-width: 90vw;
 height: calc(100% - 30px);
 margin: 15px 0;
 }
@@ -636,7 +636,6 @@ padding: 0 15px;
 }
 
 .vehicle-card {
-min-width: calc(100vw - 30px);
 padding: 50px 15px 25px;
 }
 }
